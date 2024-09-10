@@ -7,5 +7,9 @@ Route::get('/', function () {
     return view('principal');
 });
 
-Route::get('/crear-cuenta', [RegisterController::class,'index']);
+
+// petición de tipo get es cuando visitas un sitio
+Route::get('/register', [RegisterController::class,'index'])->name('register');
+// petición de tipo post es cuando envías información a un servidor
+Route::post('/register', [RegisterController::class,'store']);
 

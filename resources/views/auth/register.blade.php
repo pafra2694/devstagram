@@ -8,11 +8,12 @@
 @section('contenido')
     <div class="md:flex md:justify-center md:gap-10 md:items-center">
         <div class="md:w-6/12 p-5">
-            <img src="{{asset('img/registrar.jpg')}}" alt="Imagen registro usuarios">
+            <img class="rounded-xl" src="{{asset('img/registrar.jpg')}}" alt="Imagen registro usuarios">
         </div>
 
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
-            <form action="">
+            <form action="{{ route('register') }}" method="POST" novalidate>
+                @csrf
                 <div class="mb-5">
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
                         Nombre
@@ -22,8 +23,15 @@
                         name="name"
                         type="text"
                         placeholder="Tu Nombre"
-                        class="border p-3 w-full rounded-lg"
+                        class="border p-3 w-full rounded-lg @error('name')
+                            border-red-500
+                        @enderror"
+                        value="{{ old('name')}}"
                     />
+
+                    @error('name')
+                    <p class="text-red-500 my-2 rounded-lg text-sm">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-5">
@@ -32,11 +40,15 @@
                     </label>
                     <input 
                         id="username"
-                        name="name"
+                        name="username"
                         type="text"
                         placeholder="Tu Nombre de Usuario"
                         class="border p-3 w-full rounded-lg "
                     />
+
+                    @error('username')
+                    <p class="text-red-500 my-2 rounded-lg text-sm">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-5">
@@ -50,6 +62,10 @@
                         placeholder="Tu Email de Registro"
                         class="border p-3 w-full rounded-lg "
                     />
+
+                    @error('email')
+                    <p class="text-red-500 my-2 rounded-lg text-sm">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-5">
@@ -63,6 +79,9 @@
                         placeholder="Password de Registro"
                         class="border p-3 w-full rounded-lg "
                     />
+                    @error('password')
+                    <p class="text-red-500 my-2 rounded-lg text-sm">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-5">
@@ -81,7 +100,7 @@
                 <input 
                     type="submit" 
                     value ="Crear Cuenta"
-                    class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg" 
+                    class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg transition duration-300 hover:scale-105" 
                 />
             </form>
         </div>
