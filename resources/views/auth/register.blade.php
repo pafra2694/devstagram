@@ -23,9 +23,7 @@
                         name="name"
                         type="text"
                         placeholder="Tu Nombre"
-                        class="border p-3 w-full rounded-lg @error('name')
-                            border-red-500
-                        @enderror"
+                        class="border p-3 w-full rounded-lg @error('name') border-red-500 @enderror"
                         value="{{ old('name')}}"
                     />
 
@@ -43,7 +41,8 @@
                         name="username"
                         type="text"
                         placeholder="Tu Nombre de Usuario"
-                        class="border p-3 w-full rounded-lg "
+                        class="border p-3 w-full rounded-lg @error('username') border-red-500 @enderror"
+                        value="{{ old('username')}}"
                     />
 
                     @error('username')
@@ -60,7 +59,8 @@
                         name="email"
                         type="email"
                         placeholder="Tu Email de Registro"
-                        class="border p-3 w-full rounded-lg "
+                        class="border p-3 w-full rounded-lg @error('email') border-red-500 @enderror"
+                        value="{{ old('email')}}"
                     />
 
                     @error('email')
@@ -77,7 +77,7 @@
                         name="password"
                         type="password"
                         placeholder="Password de Registro"
-                        class="border p-3 w-full rounded-lg "
+                        class="border p-3 w-full rounded-lg @error('password') border-red-500 @enderror"
                     />
                     @error('password')
                     <p class="text-red-500 my-2 rounded-lg text-sm">{{ $message }}</p>
@@ -93,7 +93,7 @@
                         name="password_confirmation"
                         type="password"
                         placeholder="Confirma tu Password"
-                        class="border p-3 w-full rounded-lg "
+                        class="border p-3 w-full rounded-lg"
                     />
                 </div>
 

@@ -7,7 +7,7 @@
         @vite('resources/css/app.css')
 
     </head>
-    <body class="bg-gray-100">
+    <body class="bg-gray-100 min-h-screen">
         <header class="p-5 border-b bg-white shadow">
             <div class="container mx-auto flex justify-between items-center">
                 <h1 class="text-3xl font-black">
@@ -28,7 +28,7 @@
             @yield("contenido")
         </main>
 
-        <footer class="fixed bottom-0 w-full bg-white shadow text-center p-5 text-gray-500 font-bold uppercase text-xs">
+        <footer class="shadow text-center p-5 mt-10 text-gray-500 font-bold uppercase text-xs">
             DevStagram - Todos los derechos reservados {{now()->year}}
         </footer>
         
