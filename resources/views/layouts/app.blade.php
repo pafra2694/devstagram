@@ -28,7 +28,7 @@
             @yield("contenido")
         </main>
 
-        <footer class="shadow text-center p-5 mt-10 text-gray-500 font-bold uppercase text-xs">
+        <footer class="text-center p-5 mt-10 text-gray-500 font-bold uppercase text-xs">
             DevStagram - Todos los derechos reservados {{now()->year}}
         </footer>
         
