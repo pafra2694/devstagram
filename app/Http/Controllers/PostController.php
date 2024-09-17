@@ -21,7 +21,18 @@ class PostController extends Controller implements HasMiddleware
 
     public function index()
     {
-        return view('dashboard');
+        $hour = now()->hour; // Obtiene la hora actual (0-23)
+        $message = '';
+
+        if ($hour >= 6 && $hour < 12) {
+            $message = '¡Buenos días!';
+        } elseif ($hour >= 12 && $hour < 18) {
+            $message = '¡Buenas tardes!';
+        } else {
+            $message = '¡Buenas noches!';
+        }
+
+        return view('dashboard', ['message' => $message]);
     }
 
 }
