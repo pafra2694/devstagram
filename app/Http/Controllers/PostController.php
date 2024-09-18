@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Support\Facades\Auth;
@@ -19,20 +20,11 @@ class PostController extends Controller implements HasMiddleware
         ];
     }
 
-    public function index()
+    public function index(User $user)
     {
-        $hour = now()->hour; // Obtiene la hora actual (0-23)
-        $message = '';
-
-        if ($hour >= 6 && $hour < 12) {
-            $message = '¡Buenos días!';
-        } elseif ($hour >= 12 && $hour < 18) {
-            $message = '¡Buenas tardes!';
-        } else {
-            $message = '¡Buenas noches!';
-        }
-
-        return view('dashboard', ['message' => $message]);
+        return view('dashboard', [
+            'user' => $user
+        ]);
     }
 
 }

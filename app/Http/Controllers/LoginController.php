@@ -14,13 +14,13 @@ class LoginController extends Controller
     }
 
     public function store(Request $request) 
-    {
+    {         
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required'
         ]);
         
-        if(!Auth::attempt($request->only('email','password'))) {
+        if(!Auth::attempt($request->only('email','password'),$request->remember)) {
             return back()->with('mensaje','Credenciales Incorrectas'); //back vuelve a la página donde se envió el formulario sin necesidad de redireccionar
             /*
             - back() evita hacer redirección ya que regresa a la ruta donde se envió 
@@ -29,6 +29,6 @@ class LoginController extends Controller
             */
         }
 
-        return redirect()->route('post.index');
+        return redirect()->route('post.index',Auth::user()->username);
     }
 }
