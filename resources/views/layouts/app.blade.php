@@ -29,7 +29,7 @@
 
                 @guest
                     <nav class="flex gap-5 items-center">
-                        <a class="font-bold uppercase text-gray-600 text-sm transition duration-300 hover:scale-110" href="#">Login</a>
+                        <a class="font-bold uppercase text-gray-600 text-sm transition duration-300 hover:scale-110" href="{{route('login')}}">Login</a>
                         <a class="font-bold uppercase text-gray-600 text-sm transition duration-300 hover:scale-110" href="{{route('register')}}">Crear Cuenta</a>
                     </nav>
                 @endguest
