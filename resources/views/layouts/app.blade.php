@@ -18,7 +18,7 @@
                         <a href="{{route('post.index', Auth::user()->username)}}">DevStagram</a>
                     </h1>
                     <nav class="flex gap-5 items-center">
-                        <a href="{{ route('post.create') }}" class="flex items-center gap-1 bg-white border-2 border-gray-500 p-2 text-gray-600 rounded text-sm uppercase font-bold cursor-pointer shadow-md transition duration-300 hover:scale-105 hover:shadow-lg">
+                        <a href="{{ route('post.create') }}" class="flex items-center gap-1 bg-white border-2 border-gray-500 p-2 text-gray-600 rounded text-sm font-bold cursor-pointer shadow-md transition duration-300 hover:scale-105 hover:shadow-lg">
                             <svg class="h-5 w-5" dataSlot="icon" fill="none" strokeWidth={1.5} stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                               </svg>
@@ -31,7 +31,7 @@
                         
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf {{--Directiva sólo disponible en post--}}
-                            <button type="submit" class="font-bold uppercase text-gray-600 text-sm transition duration-300 hover:scale-110">
+                            <button type="submit" class="font-bold text-gray-600 text-sm transition duration-300 hover:scale-110">
                                 Cerrar sesión
                             </button>
                         </form>
@@ -43,8 +43,8 @@
                         <a href="/">DevStagram</a>
                     </h1>
                     <nav class="flex gap-5 items-center">
-                        <a class="font-bold uppercase text-gray-600 text-sm transition duration-300 hover:scale-110" href="{{route('login')}}">Login</a>
-                        <a class="font-bold uppercase text-gray-600 text-sm transition duration-300 hover:scale-110" href="{{route('register')}}">Crear Cuenta</a>
+                        <a class="font-bold text-gray-600 text-sm transition duration-300 hover:scale-110" href="{{route('login')}}">Login</a>
+                        <a class="font-bold text-gray-600 text-sm transition duration-300 hover:scale-110" href="{{route('register')}}">Crear Cuenta</a>
                     </nav>
                 @endguest
 
