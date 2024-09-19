@@ -99,7 +99,7 @@
 
                 <input 
                     type="submit" 
-                    value ="Crear Cuenta"
+                    value ="Crear cuenta"
                     class="bg-sky-600 hover:bg-sky-700 cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg transition duration-300 hover:scale-105" 
                 />
             </form>
