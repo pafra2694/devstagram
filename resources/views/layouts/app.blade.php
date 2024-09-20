@@ -4,9 +4,22 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>DevStagram - @yield("titulo")</title>
+        @stack('styles')
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
     </head>
+
+    <?php
+        $messageHi = '';
+        $hour = now()->hour; // Obtiene la hora actual (0-23)
+        if ($hour >= 6 && $hour < 12) {
+            $messageHi = '¡Buenos días!';
+        } elseif ($hour >= 12 && $hour < 18) {
+            $messageHi = '¡Buenas tardes!';
+        } else {
+            $messageHi = '¡Buenas noches!';
+        }
+    ?>
 
     <body class="bg-gray-100 min-h-screen">
         <header class="p-5 border-b bg-white shadow">
@@ -26,7 +39,7 @@
                         </a>
 
                         <a class="font-bold text-gray-600 text-sm transition duration-300 hover:scale-110" href="{{ route('post.index', Auth::user()->username) }}">
-                            {{$message}}<span class="font-normal"> {{Auth::user()->name}}</span>
+                            {{$messageHi}}<span class="font-normal"> {{Auth::user()->name}}</span>
                         </a>
                         
                         <form method="POST" action="{{ route('logout') }}">

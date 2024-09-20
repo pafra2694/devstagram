@@ -10,19 +10,6 @@ use Illuminate\Support\Facades\Route;
 
 class PostController extends Controller implements HasMiddleware
 {
-    //función que crea un mensaje de bienvenida personalizado que se muestra en el header al ser autenticado
-    private function getGreetingMessage()
-    {
-        $hour = now()->hour; // Obtiene la hora actual (0-23)
-        if ($hour >= 6 && $hour < 12) {
-            return '¡Buenos días!';
-        } elseif ($hour >= 12 && $hour < 18) {
-            return '¡Buenas tardes!';
-        } else {
-            return '¡Buenas noches!';
-        }
-    }
-    //
     public static function middleware(): array
     {
         return [
@@ -33,21 +20,14 @@ class PostController extends Controller implements HasMiddleware
 
     public function index(User $user)
     {  
-        //se genera el mensaje con la función 
-        $message = $this->getGreetingMessage();
-
         return view('dashboard', [
-            'user' => $user,
-            'message' => $message,
+            'user' => $user
         ]);
     }
 
     public function create()
-    {
-        //se genera el mensaje con la función 
-        $message = $this->getGreetingMessage();
-        
-        return view('posts.create', ['message' => $message]);
+    {   
+        return view('posts.create');
     }
 
 }

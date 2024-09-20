@@ -20,7 +20,7 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
         
-        if(!Auth::attempt($request->only('email','password'),$request->remember)) {
+        if(!Auth::attempt($request->only('email','password'),$request->remember)) { //request->remember es para mantener sesión iniciada
             return back()->with('mensaje','Credenciales Incorrectas'); //back vuelve a la página donde se envió el formulario sin necesidad de redireccionar
             /*
             - back() evita hacer redirección ya que regresa a la ruta donde se envió 
