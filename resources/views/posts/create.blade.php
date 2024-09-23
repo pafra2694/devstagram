@@ -17,7 +17,7 @@
         </div>
 
         <div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0 m-5">
-            <form action="" method="" novalidate>
+            <form action="{{ route('posts.store') }}" method="POST" novalidate>
                 @csrf
                 <div class="mb-5">
                     <label for="titulo" class="mb-2 block uppercase text-gray-500 font-bold">
@@ -33,7 +33,7 @@
                     />
 
                     @error('titulo')
-                    <p class="text-red-500 my-2 rounded-lg text-sm">{{ $message }}</p>
+                    <p class="text-red-500 my-2 rounded-lg text-sm font-bold">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-5">
@@ -48,7 +48,17 @@
                         >{{ old('descripcion')}}</textarea>
 
                     @error('descripcion')
-                    <p class="text-red-500 my-2 rounded-lg text-sm">{{ $message }}</p>
+                    <p class="text-red-500 my-2 rounded-lg text-sm font-bold">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="mb-5">
+                    <input
+                        name="imagen"
+                        type="hidden"
+                        value="{{ old('imagen') }}"
+                    />
+                    @error('imagen')
+                        <p class="text-red-500 my-2 rounded-lg text-sm font-bold">{{ $message }}</p>
                     @enderror
                 </div>
                 <input 

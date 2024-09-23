@@ -52,7 +52,7 @@
                 @endauth
 
                 @guest
-                    <h1 class="text-3xl font-black">S
+                    <h1 class="text-3xl font-black">
                         <a href="/">DevStagram</a>
                     </h1>
                     <nav class="flex gap-5 items-center">

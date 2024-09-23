@@ -14,15 +14,16 @@ class ImagenController extends Controller
         $imagen = $request->file('file');
 
         
+        
+        $nombreImagen = Str::uuid() . "." . $imagen->extension();
+        
         //Para el procesamiento de imagenes se usó InterventionImage
         /*
         * con el uso de los siguientes comandos
         * $ composer require intervention/image-laravel
         * $ pa vendor:publish --provider="Intervention\Image\Laravel\ServiceProvider"
         */
-
-        $nombreImagen = Str::uuid() . "." . $imagen->extension();
-
+        
         $manager = new ImageManager(new Driver());
  
         $imagenServidor = $manager->read($imagen);

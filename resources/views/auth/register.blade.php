@@ -28,7 +28,7 @@
                     />
 
                     @error('name')
-                    <p class="text-red-500 my-2 rounded-lg text-sm">{{ $message }}</p>
+                    <p class="text-red-500 my-2 rounded-lg text-sm font-bold">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -46,7 +46,7 @@
                     />
 
                     @error('username')
-                    <p class="text-red-500 my-2 rounded-lg text-sm">{{ $message }}</p>
+                    <p class="text-red-500 my-2 rounded-lg text-sm font-bold">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -64,7 +64,7 @@
                     />
 
                     @error('email')
-                    <p class="text-red-500 my-2 rounded-lg text-sm">{{ $message }}</p>
+                    <p class="text-red-500 my-2 rounded-lg text-sm font-bold">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -80,7 +80,7 @@
                         class="border p-3 w-full rounded-lg @error('password') border-red-500 @enderror"
                     />
                     @error('password')
-                    <p class="text-red-500 my-2 rounded-lg text-sm">{{ $message }}</p>
+                    <p class="text-red-500 my-2 rounded-lg text-sm font-bold">{{ $message }}</p>
                     @enderror
                 </div>
 
