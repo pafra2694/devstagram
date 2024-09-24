@@ -14,6 +14,9 @@
             <form action=" {{route('imagenes.store') }}" method="POST" enctype="multipart/form-data" id="dropzone" class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center">
                 @csrf
             </form>
+            @error('imagen')
+                        <p class="text-white text-center my-2 text-sm font-bold p-2 bg-red-600 rounded-lg shadow-xl">{{ $message }}</p>
+            @enderror
         </div>
 
         <div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0 m-5">
@@ -57,9 +60,7 @@
                         type="hidden"
                         value="{{ old('imagen') }}"
                     />
-                    @error('imagen')
-                        <p class="text-red-500 my-2 rounded-lg text-sm font-bold">{{ $message }}</p>
-                    @enderror
+                    
                 </div>
                 <input 
                     type="submit" 
