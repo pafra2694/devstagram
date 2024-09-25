@@ -21,8 +21,16 @@ class PostController extends Controller implements HasMiddleware
 
     public function index(User $user)
     {  
+        //Código para obtener los posts del usuario...
+        /**
+         * Es posible usar la relación del modelo directamente en dashboard.blade (usando $user->posts) pero no se puede paginar
+         * de esta manera, es por eso que se usa la siguiente forma.
+         */
+        $posts = Post::where('user_id', $user->id)->Paginate(6);
+
         return view('dashboard', [
-            'user' => $user
+            'user' => $user,
+            'posts' => $posts
         ]);
     }
 
@@ -39,12 +47,14 @@ class PostController extends Controller implements HasMiddleware
             'imagen' => 'required'
         ]);
 
-        Post::create([
-            'titulo' => $request->titulo,
-            'descripcion' => $request->descripcion,
-            'imagen' => $request->imagen,
-            'user_id' => Auth::user()->id
-        ]);
+        //INSTERTAR REGISTRO
+        //Insertar registro a BD
+        // Post::create([
+        //     'titulo' => $request->titulo,
+        //     'descripcion' => $request->descripcion,
+        //     'imagen' => $request->imagen,
+        //     'user_id' => Auth::user()->id
+        // ]);
 
         // OTRA FORMA DE INSTERTAR REGISTRO
         // $post = new Post;
@@ -54,6 +64,17 @@ class PostController extends Controller implements HasMiddleware
         // $post->user_id = Auth::user()->id;
         // $post->save();
 
+        // OTRA FORMA DE INSTERTAR REGISTRO
+        //Otra forma usando relaciones creadas en modelos
+        $request->user()->posts()->create([
+                'titulo' => $request->titulo,
+                'descripcion' => $request->descripcion,
+                'imagen' => $request->imagen,
+                'user_id' => Auth::user()->id
+        ]);
+
+
+        //Redirección a post.index (o el muro del usuario autenticado)
         return redirect()->route('post.index',Auth::user()->username);
 
     }
