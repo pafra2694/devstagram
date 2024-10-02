@@ -39,7 +39,7 @@
             <div class="grid grid-cols-3 gap-6">
                 @foreach ($posts as $post)
                 <div class="">
-                    <a href="">
+                    <a href="{{ route('posts.show', ['post' => $post, 'user' => $user]) }}">
                         <img src="{{ asset('uploads') . '/' . $post->imagen}}" alt="imagen del post {{ $post->titulo }}">
                     </a>
                 </div>
