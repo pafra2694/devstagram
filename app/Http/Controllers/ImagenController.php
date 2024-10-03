@@ -22,6 +22,7 @@ class ImagenController extends Controller
         * con el uso de los siguientes comandos
         * $ composer require intervention/image-laravel
         * $ pa vendor:publish --provider="Intervention\Image\Laravel\ServiceProvider"
+        * Es necesario descomentar extension=gd en php.ini para que jale
         */
         
         $manager = new ImageManager(new Driver());
